@@ -55,14 +55,12 @@ CMAKE_BINARY_DIR = /home/melissa/Interfaces_Project/catkin_ws/build
 # The main recursive "all" target.
 all: gtest/all
 all: green_object_detection/all
-all: camera_display/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: gtest/preinstall
 preinstall: green_object_detection/preinstall
-preinstall: camera_display/preinstall
 
 .PHONY : preinstall
 
@@ -74,36 +72,8 @@ clean: CMakeFiles/tests.dir/clean
 clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
 clean: green_object_detection/clean
-clean: camera_display/clean
 
 .PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory camera_display
-
-# Recursive "all" directory target.
-camera_display/all:
-
-.PHONY : camera_display/all
-
-# Recursive "preinstall" directory target.
-camera_display/preinstall:
-
-.PHONY : camera_display/preinstall
-
-# Recursive "clean" directory target.
-camera_display/clean: camera_display/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
-camera_display/clean: camera_display/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
-camera_display/clean: camera_display/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
-camera_display/clean: camera_display/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
-camera_display/clean: camera_display/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
-camera_display/clean: camera_display/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
-camera_display/clean: camera_display/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
-camera_display/clean: camera_display/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
-camera_display/clean: camera_display/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
-camera_display/clean: camera_display/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
-
-.PHONY : camera_display/clean
 
 #=============================================================================
 # Directory level rules for directory green_object_detection
@@ -333,8 +303,8 @@ CMakeFiles/download_extra_data.dir/clean:
 # Target rules for target gtest/googlemock/CMakeFiles/gmock_main.dir
 
 # All Build rule for target.
-gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googlemock/CMakeFiles/gmock.dir/all
+gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles --progress-num=3,4 "Built target gmock_main"
@@ -842,276 +812,6 @@ rosgraph_msgs_generate_messages_py: green_object_detection/CMakeFiles/rosgraph_m
 green_object_detection/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean:
 	$(MAKE) -f green_object_detection/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make green_object_detection/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
 .PHONY : green_object_detection/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
-
-#=============================================================================
-# Target rules for target camera_display/CMakeFiles/sensor_msgs_generate_messages_cpp.dir
-
-# All Build rule for target.
-camera_display/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all:
-	$(MAKE) -f camera_display/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make camera_display/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/depend
-	$(MAKE) -f camera_display/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make camera_display/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_cpp"
-.PHONY : camera_display/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
-
-# Build rule for subdir invocation for target.
-camera_display/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 camera_display/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles 0
-.PHONY : camera_display/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_cpp: camera_display/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_cpp
-
-# clean rule for target.
-camera_display/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean:
-	$(MAKE) -f camera_display/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make camera_display/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
-.PHONY : camera_display/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
-
-#=============================================================================
-# Target rules for target camera_display/CMakeFiles/sensor_msgs_generate_messages_eus.dir
-
-# All Build rule for target.
-camera_display/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all:
-	$(MAKE) -f camera_display/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make camera_display/CMakeFiles/sensor_msgs_generate_messages_eus.dir/depend
-	$(MAKE) -f camera_display/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make camera_display/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_eus"
-.PHONY : camera_display/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
-
-# Build rule for subdir invocation for target.
-camera_display/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 camera_display/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles 0
-.PHONY : camera_display/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_eus: camera_display/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_eus
-
-# clean rule for target.
-camera_display/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean:
-	$(MAKE) -f camera_display/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make camera_display/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
-.PHONY : camera_display/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
-
-#=============================================================================
-# Target rules for target camera_display/CMakeFiles/geometry_msgs_generate_messages_eus.dir
-
-# All Build rule for target.
-camera_display/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all:
-	$(MAKE) -f camera_display/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make camera_display/CMakeFiles/geometry_msgs_generate_messages_eus.dir/depend
-	$(MAKE) -f camera_display/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make camera_display/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_eus"
-.PHONY : camera_display/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
-
-# Build rule for subdir invocation for target.
-camera_display/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 camera_display/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles 0
-.PHONY : camera_display/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_eus: camera_display/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_eus
-
-# clean rule for target.
-camera_display/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean:
-	$(MAKE) -f camera_display/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make camera_display/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
-.PHONY : camera_display/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
-
-#=============================================================================
-# Target rules for target camera_display/CMakeFiles/geometry_msgs_generate_messages_lisp.dir
-
-# All Build rule for target.
-camera_display/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all:
-	$(MAKE) -f camera_display/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make camera_display/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/depend
-	$(MAKE) -f camera_display/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make camera_display/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_lisp"
-.PHONY : camera_display/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
-
-# Build rule for subdir invocation for target.
-camera_display/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 camera_display/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles 0
-.PHONY : camera_display/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_lisp: camera_display/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_lisp
-
-# clean rule for target.
-camera_display/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean:
-	$(MAKE) -f camera_display/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make camera_display/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
-.PHONY : camera_display/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
-
-#=============================================================================
-# Target rules for target camera_display/CMakeFiles/sensor_msgs_generate_messages_lisp.dir
-
-# All Build rule for target.
-camera_display/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all:
-	$(MAKE) -f camera_display/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make camera_display/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/depend
-	$(MAKE) -f camera_display/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make camera_display/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_lisp"
-.PHONY : camera_display/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
-
-# Build rule for subdir invocation for target.
-camera_display/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 camera_display/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles 0
-.PHONY : camera_display/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_lisp: camera_display/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_lisp
-
-# clean rule for target.
-camera_display/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean:
-	$(MAKE) -f camera_display/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make camera_display/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
-.PHONY : camera_display/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
-
-#=============================================================================
-# Target rules for target camera_display/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir
-
-# All Build rule for target.
-camera_display/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all:
-	$(MAKE) -f camera_display/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make camera_display/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/depend
-	$(MAKE) -f camera_display/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make camera_display/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_nodejs"
-.PHONY : camera_display/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
-
-# Build rule for subdir invocation for target.
-camera_display/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 camera_display/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles 0
-.PHONY : camera_display/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_nodejs: camera_display/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_nodejs
-
-# clean rule for target.
-camera_display/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f camera_display/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make camera_display/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
-.PHONY : camera_display/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
-
-#=============================================================================
-# Target rules for target camera_display/CMakeFiles/geometry_msgs_generate_messages_py.dir
-
-# All Build rule for target.
-camera_display/CMakeFiles/geometry_msgs_generate_messages_py.dir/all:
-	$(MAKE) -f camera_display/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make camera_display/CMakeFiles/geometry_msgs_generate_messages_py.dir/depend
-	$(MAKE) -f camera_display/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make camera_display/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_py"
-.PHONY : camera_display/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
-
-# Build rule for subdir invocation for target.
-camera_display/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 camera_display/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles 0
-.PHONY : camera_display/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_py: camera_display/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_py
-
-# clean rule for target.
-camera_display/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean:
-	$(MAKE) -f camera_display/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make camera_display/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
-.PHONY : camera_display/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
-
-#=============================================================================
-# Target rules for target camera_display/CMakeFiles/sensor_msgs_generate_messages_py.dir
-
-# All Build rule for target.
-camera_display/CMakeFiles/sensor_msgs_generate_messages_py.dir/all:
-	$(MAKE) -f camera_display/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make camera_display/CMakeFiles/sensor_msgs_generate_messages_py.dir/depend
-	$(MAKE) -f camera_display/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make camera_display/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_py"
-.PHONY : camera_display/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
-
-# Build rule for subdir invocation for target.
-camera_display/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 camera_display/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles 0
-.PHONY : camera_display/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-sensor_msgs_generate_messages_py: camera_display/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
-
-.PHONY : sensor_msgs_generate_messages_py
-
-# clean rule for target.
-camera_display/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean:
-	$(MAKE) -f camera_display/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make camera_display/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
-.PHONY : camera_display/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
-
-#=============================================================================
-# Target rules for target camera_display/CMakeFiles/geometry_msgs_generate_messages_cpp.dir
-
-# All Build rule for target.
-camera_display/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all:
-	$(MAKE) -f camera_display/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make camera_display/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/depend
-	$(MAKE) -f camera_display/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make camera_display/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_cpp"
-.PHONY : camera_display/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
-
-# Build rule for subdir invocation for target.
-camera_display/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 camera_display/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles 0
-.PHONY : camera_display/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_cpp: camera_display/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_cpp
-
-# clean rule for target.
-camera_display/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean:
-	$(MAKE) -f camera_display/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make camera_display/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
-.PHONY : camera_display/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
-
-#=============================================================================
-# Target rules for target camera_display/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir
-
-# All Build rule for target.
-camera_display/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all:
-	$(MAKE) -f camera_display/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make camera_display/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/depend
-	$(MAKE) -f camera_display/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make camera_display/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_nodejs"
-.PHONY : camera_display/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
-
-# Build rule for subdir invocation for target.
-camera_display/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 camera_display/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/melissa/Interfaces_Project/catkin_ws/build/CMakeFiles 0
-.PHONY : camera_display/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_nodejs: camera_display/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_nodejs
-
-# clean rule for target.
-camera_display/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f camera_display/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make camera_display/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
-.PHONY : camera_display/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -132,7 +132,6 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/melissa/Interfaces_Project/catkin_ws/build/gtest/cmake_install.cmake")
   include("/home/melissa/Interfaces_Project/catkin_ws/build/green_object_detection/cmake_install.cmake")
-  include("/home/melissa/Interfaces_Project/catkin_ws/build/camera_display/cmake_install.cmake")
 
 endif()
 

@@ -6,4 +6,3 @@
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
 subdirs("green_object_detection")
-subdirs("camera_display")

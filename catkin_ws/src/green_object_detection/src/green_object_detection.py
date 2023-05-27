@@ -6,12 +6,16 @@ import numpy as np
 from sensor_msgs.msg import Image # Creo que no lo utilizo
 from cv_bridge import CvBridge # Arriba x2
 import ctypes
-
+from std_msgs.msg import Header
+from geometry_msgs.msg import PointStamped
 
 class ObjectDetector:
     def __init__(self):
         # Cargar librería -------------
         self.lib = ctypes.CDLL("/home/melissa/Interfaces_Project/catkin_ws/src/green_object_detection/src/library/libmultiply_coordinates.so")
+        
+        # Crea Publisher para el topic donde se publicaran las nuevas coordenadas
+        self.pub = rospy.Publisher('/coordinates', PointStamped, queue_size=10)
         
         # Captura de video
         self.vid = cv.VideoCapture(1)
@@ -57,8 +61,17 @@ class ObjectDetector:
             cy = int(M['m01']/M['m00'])
 
             # Print de coordenadas del centro del objeto verde
-            print("Coordenada X: ", cx) #cx
-            print("Coordenada Y: ", cy) #cy
+            print("Coordenada X: ", cx)
+            print("Coordenada Y: ", cy)
+            
+            # PointStamped con coordenadas multiplicadas y su timestamp
+            timePoint = PointStamped()
+            timePoint.header = Header(stamp=rospy.Time.now(), frame_id="camera_frame")
+            timePoint.point.x = cx
+            timePoint.point.y = cy
+            
+            # Publish objeto en el tópico
+            self.pub.publish(timePoint)
 
 def main():
     rospy.init_node('object_detector')
