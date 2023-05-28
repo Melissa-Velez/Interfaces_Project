@@ -3,8 +3,6 @@
 import rospy
 import cv2 as cv
 import numpy as np
-from sensor_msgs.msg import Image # Creo que no lo utilizo
-from cv_bridge import CvBridge # Arriba x2
 import ctypes
 from std_msgs.msg import Header
 from geometry_msgs.msg import PointStamped
@@ -18,7 +16,7 @@ class ObjectDetector:
         self.pub = rospy.Publisher('/coordinates', PointStamped, queue_size=10)
         
         # Captura de video
-        self.vid = cv.VideoCapture(1)
+        self.vid = cv.VideoCapture(0)
         self.cv_image = None
         while True:
             if not self.vid.isOpened():
@@ -45,33 +43,34 @@ class ObjectDetector:
             # Coordenadas del rectangulo
             x, y, w, h = cv.boundingRect(contour)
             
-            # Llamar a la función de multiplicación de la librería de C++
-            self.lib.multiply_coordinates(ctypes.byref(ctypes.c_int(x)), ctypes.byref(ctypes.c_int(y)))
-            
             # Dibujar cuadro alrededor del contorno
             cv.rectangle(self.cv_image, (x, y), (x + w, y + h), (255, 0, 0), 2)            
         
         if len(contours) > 0:
-            # Encontrar el contorno mas grande (suponiendo que es el objeto que buscamos)
+            # Encontrar el contorno mas grande
             c = max(contours, key=cv.contourArea)
             
             # Calcular el centro del contorno
             M = cv.moments(c)
             cx = int(M['m10']/M['m00'])
             cy = int(M['m01']/M['m00'])
-
-            # Print de coordenadas del centro del objeto verde
-            print("Coordenada X: ", cx)
-            print("Coordenada Y: ", cy)
+            
+            # Coordenadas ctypes
+            newCoordX = ctypes.c_int(cx)
+            newCoordY = ctypes.c_int(cy)
+            # Importacion de libreria y nuevas coordenadas*100
+            self.lib.multiply_coordinates(ctypes.byref(newCoordX), ctypes.byref(newCoordY))
+            print("COORDENADA X: ", newCoordX.value)
+            print("COORDENADA Y: ", newCoordY.value)
             
             # PointStamped con coordenadas multiplicadas y su timestamp
-            timePoint = PointStamped()
-            timePoint.header = Header(stamp=rospy.Time.now(), frame_id="camera_frame")
-            timePoint.point.x = cx
-            timePoint.point.y = cy
+            self.timePoint = PointStamped()
+            self.timePoint.header = Header(stamp=rospy.Time.now(), frame_id="camera_frame")
+            self.timePoint.point.x = newCoordX.value #cx
+            self.timePoint.point.y = newCoordY.value #cy
             
             # Publish objeto en el tópico
-            self.pub.publish(timePoint)
+            self.pub.publish(self.timePoint)
 
 def main():
     rospy.init_node('object_detector')
