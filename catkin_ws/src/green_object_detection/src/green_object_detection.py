@@ -49,11 +49,17 @@ class ObjectDetector:
         if len(contours) > 0:
             # Encontrar el contorno mas grande
             c = max(contours, key=cv.contourArea)
+            cx = 0
+            cy = 0
             
             # Calcular el centro del contorno
             M = cv.moments(c)
-            cx = int(M['m10']/M['m00'])
-            cy = int(M['m01']/M['m00'])
+            
+            if M['m00'] > 0:
+                cx = int(M['m10']/M['m00'])
+                cy = int(M['m01']/M['m00'])
+            else:
+                pass
             
             # Coordenadas ctypes
             newCoordX = ctypes.c_int(cx)

@@ -1,23 +1,30 @@
 syntax = "proto3";
+package RpcDemo; //
 
-package object_coordinates;
+// package object_coordinates; //
+// import "google/protobuf/empty.proto";
 
-import "google/protobuf/empty.proto";
+message PointStamped {
 
-message Coordinate {
-  int32 x = 1;
-  int32 y = 2;
+  message Coordinates{
+    float x = 1;
+    float y = 2;
+  }
+
+  message Header {
+  uint32 seq = 1;
+  uint64 stamp = 2;
+  string frame_id = 3;
+  }
+  
+  Header header = 1;
+  Coordinates point = 2;
 }
-
-service ObjectCoordinatesService {
-  rpc GetCoordinates(stream google.protobuf.Empty) returns (stream Coordinate);
-}
-
-
-// JV
 
 message Empty{}
 
-service ObjectCoordinatesService{
-  rpc GetCoordinates(Empty) returns (Coordinate) {}
+service coordinatesService{
+  rpc getCoordinates(Empty) returns (PointStamped) {}
+  // rpc getCoordinates(stream google.protobuf.Empty) returns (stream PointStamped); //
+  // pc setCoordinates (stream PointStamped) returns (google.protobuf.Empty);
 }
