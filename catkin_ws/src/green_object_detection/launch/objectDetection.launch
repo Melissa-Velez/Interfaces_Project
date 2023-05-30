@@ -1,0 +1,13 @@
+<launch>
+  <!-- Lanzamiento del nodo green_object_detection.py -->
+  <node pkg="green_object_detection" type="green_object_detection.py" name="green_object_detection" output="screen">
+    <!-- Parámetros específicos del nodo si los tienes -->
+    <!-- <param name="param_name" value="param_value" /> -->
+  </node>
+
+  <!-- Lanzamiento del nodo coordinatesServer.py -->
+  <node pkg="green_object_detection" type="coordinatesServer.py" name="coordinates_server" output="screen">
+    <!-- Parámetros específicos del nodo si los tienes -->
+    <!-- <param name="param_name" value="param_value" /> -->
+  </node>
+</launch>

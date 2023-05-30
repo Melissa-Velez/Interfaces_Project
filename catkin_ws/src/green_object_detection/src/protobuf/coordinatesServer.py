@@ -13,10 +13,6 @@ from geometry_msgs.msg import PointStamped
 from concurrent.futures import ThreadPoolExecutor
 import grpc
 
-#############################
-#from grpc import server ## 
-#from concurrent.futures import ThreadPoolExecutor
-
 class CoordinatesService(object_coordinates_pb2_grpc.coordinatesServiceServicer):
     def __init__(self):
         self.timePoints = PointStamped()
@@ -54,12 +50,9 @@ def stop_server(signum,frame): ##
 def main():
     port = '50051'
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    #coordinates_service = CoordinatesService()
     object_coordinates_pb2_grpc.add_coordinatesServiceServicer_to_server(CoordinatesService(), server)
-    #object_coordinates_pb2_grpc.add_coordinatesServiceServicer_to_server(CoordinatesService(), server)
     
-    server.add_insecure_port('127.0.0.1:' + port) ## ??
-    #server.add_insecure_port('[::]:50051') ## el otro ??
+    server.add_insecure_port('127.0.0.1:' + port)
     server.start()
     print("Servidor iniciado, escuchando en " + port)
     # rospy.spin()

@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{0DC7FBCF-2015-47EF-BE24-E514DDB040C5}|Default">
+  <MonoDevelop.Ide.ItemProperties.interfaces PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="interfaces/protos/ObjectCoordinatesGrpc.cs">
+    <Files>
+      <File FileName="interfaces/Program.cs" Line="12" Column="30" />
+      <File FileName="interfaces/protos/ObjectCoordinatesGrpc.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="interfaces" expanded="True">
+            <Node name="interfaces" expanded="True">
+              <Node name="protos" expanded="True">
+                <Node name="ObjectCoordinatesGrpc.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
