@@ -9,7 +9,7 @@ from geometry_msgs.msg import PointStamped
 
 class ObjectDetector:
     def __init__(self):
-        # Cargar librería -------------
+        # Cargar libreria -------------
         self.lib = ctypes.CDLL("/home/melissa/Interfaces_Project/catkin_ws/src/green_object_detection/src/library/libmultiply_coordinates.so")
         
         # Crea Publisher para el topic donde se publicaran las nuevas coordenadas
@@ -75,7 +75,7 @@ class ObjectDetector:
             self.timePoint.point.x = newCoordX.value #cx
             self.timePoint.point.y = newCoordY.value #cy
             
-            # Publish objeto en el tópico
+            # Publish objeto en el topico
             self.pub.publish(self.timePoint)
 
 def main():

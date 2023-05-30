@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 
-#from concurrent import futures
+from concurrent import futures
 import logging
 import sys
 import time
 import signal
-import grpc
+
 import object_coordinates_pb2
 import object_coordinates_pb2_grpc
 import rospy
 from geometry_msgs.msg import PointStamped
 from concurrent.futures import ThreadPoolExecutor
+import grpc
 
 #############################
 #from grpc import server ## 
@@ -35,19 +36,18 @@ class CoordinatesService(object_coordinates_pb2_grpc.coordinatesServiceServicer)
                 stamp = int(self.timePoints.header.stamp.to_sec()),
                 frame_id = self.timePoints.header.frame_id
             ),
-            point = object_coordinates_pb2.PointStamped.Point(
+            point = object_coordinates_pb2.PointStamped.Coordinates(
                 x = self.timePoints.point.x, ##
-                y = self.timePoints.point.y, ##
-                z=0 ## se agrega ??
+                y = self.timePoints.point.y ##
             )
     )
     
     def coordinates_callback(self,data):
         self.timePoints = data
         
-def stop_server(signum,frame): ## Revisar que hace esto
+def stop_server(signum,frame): ##
     print('Asistiendo signal {signum} ({signal.Signals(signum).name}).')
-    # espacio
+    # 
     time.sleep(1)
     sys.exit(0)
     
@@ -58,7 +58,7 @@ def main():
     object_coordinates_pb2_grpc.add_coordinatesServiceServicer_to_server(CoordinatesService(), server)
     #object_coordinates_pb2_grpc.add_coordinatesServiceServicer_to_server(CoordinatesService(), server)
     
-    server.add_insecure_port('127.0.0.1' + port) ## ??
+    server.add_insecure_port('127.0.0.1:' + port) ## ??
     #server.add_insecure_port('[::]:50051') ## el otro ??
     server.start()
     print("Servidor iniciado, escuchando en " + port)
