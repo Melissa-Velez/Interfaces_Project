@@ -4,6 +4,8 @@ package RpcDemo; //
 // package object_coordinates; //
 // import "google/protobuf/empty.proto";
 
+// option go_package = "./proto";
+
 message PointStamped {
 
   message Coordinates{

@@ -1,0 +1,35 @@
+syntax = "proto3";
+package RpcDemo; //
+
+option go_package = "./proto";
+
+// import "google/api/annotations.proto"; // V2
+
+// import "google/protobuf/empty.proto";
+
+message PointStamped {
+
+  message Coordinates{
+    float x = 1;
+    float y = 2;
+  }
+
+  message Header {
+  uint32 seq = 1;
+  uint64 stamp = 2;
+  string frame_id = 3;
+  }
+  
+  Header header = 1;
+  Coordinates point = 2;
+}
+
+message Empty{}
+
+service coordinatesService{
+  rpc getCoordinates(Empty) returns (PointStamped) {
+    // option (google.api.http) = { // V2
+    //  get: "/coordinates" // V2
+    // };
+  }
+}

@@ -16,7 +16,7 @@ class ObjectDetector:
         self.pub = rospy.Publisher('/coordinates', PointStamped, queue_size=10)
         
         # Captura de video
-        self.vid = cv.VideoCapture(0)
+        self.vid = cv.VideoCapture(1)
         self.cv_image = None
         while True:
             if not self.vid.isOpened():

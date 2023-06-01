@@ -1,0 +1,61 @@
+package main
+
+import (
+	"context"
+	"log"
+	"net"
+
+	pb "example.com/grpcGateway/gen/proto"
+
+	"google.golang.org/grpc"
+)
+
+type coordinatesServiceServer struct {
+	pb.UnimplementedCoordinatesServiceServer
+}
+
+// Faltaria una function de user
+
+func (s *coordinatesServiceServer) GetCoordinates(ctx context.Context, req *pb.Empty) (*pb.PointStamped, error) {
+	return &pb.PointStamped{
+		Header: &pb.PointStamped_Header{
+			Seq:     1,
+			Stamp:   123,
+			FrameId: "camera",
+		},
+		Point: &pb.PointStamped_Coordinates{
+			X: 12,
+			Y: 234,
+		},
+	}, nil
+
+	//
+	//log.Printf("Punto estampado: %+v", &pb.PointStamped{})
+
+	//return &pb.PointStamped{}, nil
+
+}
+
+func main() {
+	// Create TCP Server
+	listener, err := net.Listen("tcp", "localhost:50051")
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	// Create gRPC Server
+	grpcServer := grpc.NewServer()
+
+	pb.RegisterCoordinatesServiceServer(grpcServer, &coordinatesServiceServer{})
+
+	log.Println("Listening on 50051")
+
+	// Connect servers
+	err = grpcServer.Serve(listener)
+	if err != nil {
+		// log.Println(err) // V1 Tutorial
+		log.Println(err)
+	} //else {
+	//log.Println("Listening on 50051")
+	//}
+}

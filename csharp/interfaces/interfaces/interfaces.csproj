@@ -52,6 +52,12 @@
   <ItemGroup>
     <Protobuf Include="protos/object_coordinates.proto" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="server\" />
+    <Folder Include="client\" />
+    <Folder Include="gen\" />
+    <Folder Include="gen\proto\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Grpc.Core.1.2.2\build\net45\Grpc.Core.targets" Condition="Exists('..\packages\Grpc.Core.1.2.2\build\net45\Grpc.Core.targets')" />
 </Project>
