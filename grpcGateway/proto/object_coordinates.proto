@@ -1,11 +1,9 @@
 syntax = "proto3";
-package RpcDemo; //
+package RpcDemo;
 
 option go_package = "./proto";
 
-// import "google/api/annotations.proto"; // V2
-
-// import "google/protobuf/empty.proto";
+import "google/api/annotations.proto";
 
 message PointStamped {
 
@@ -28,8 +26,8 @@ message Empty{}
 
 service coordinatesService{
   rpc getCoordinates(Empty) returns (PointStamped) {
-    // option (google.api.http) = { // V2
-    //  get: "/coordinates" // V2
-    // };
+    option (google.api.http) = {
+     get: "/coordinates"
+    };
   }
 }
