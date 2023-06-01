@@ -24,8 +24,8 @@ func main() {
 	req := &pb.Empty{}
 	res, err := client.GetCoordinates(context.Background(), req)
 	if err != nil {
-		log.Fatalf("Error al llamar al servidor: %v", err)
+		log.Println("Error al llamar al servidor: %v", err)
 	}
 
-	log.Println(res)
+	log.Println("Coordinadas recibidas: %+v", res)
 }

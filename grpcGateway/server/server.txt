@@ -1,5 +1,4 @@
-// VERSION 1, ANTES DE PASAR A CLIENT.golang
-// MIN 14:27
+// VERSION JUNIO 1 08:24 AM
 
 package main
 
@@ -16,6 +15,8 @@ import (
 type coordinatesServiceServer struct {
 	pb.UnimplementedCoordinatesServiceServer
 }
+
+// Faltaria una function de user
 
 func (s *coordinatesServiceServer) GetCoordinates(ctx context.Context, req *pb.Empty) (*pb.PointStamped, error) {
 	return &pb.PointStamped{
@@ -55,7 +56,7 @@ func main() {
 	err = grpcServer.Serve(listener)
 	if err != nil {
 		// log.Println(err) // V1 Tutorial
-		log.Fatalf("Failed conection to server: %v", err)
+		log.Println(err)
 	} //else {
 	//log.Println("Listening on 50051")
 	//}

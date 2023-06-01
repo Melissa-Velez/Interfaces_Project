@@ -1,0 +1,6 @@
+POST http://localhost:50052/coordinates
+content-type: application/json 
+
+{
+    "msg":"Hello"
+}
