@@ -1,4 +1,4 @@
 # Interfaces_Project
 Actividad en proceso
 
-  Pendiente documentación y terminar diagrama. 
+  Pendiente documentación, terminar diagrama y subir video
