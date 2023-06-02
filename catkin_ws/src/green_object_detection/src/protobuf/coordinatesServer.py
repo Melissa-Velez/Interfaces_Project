@@ -14,18 +14,23 @@ from concurrent.futures import ThreadPoolExecutor
 import grpc
 
 class CoordinatesService(object_coordinates_pb2_grpc.coordinatesServiceServicer):
+    """@class CoordinatesService
+    Creación de servidor.
+    """
+    
     def __init__(self):
+        """@brief CoordinatesService/__init__
+        Suscripción al tópico /coordinates de donde se reciben las coordenadas obtenidas de la detección del objeto color verde,
+        """
         self.timePoints = PointStamped()
         # Subscriber a nodo con coordenadas*100
         rospy.Subscriber("/coordinates", PointStamped, self.coordinates_callback)
-        # agregado como prueba -------------------
-        # self.cv_image = None
-        # frame = self.cv_image
-        # ret, frame = self.vid.read()
-        #ret, self.cv_image = self.vid.read()
-        # ------------------------------------------
         
     def getCoordinates(self, request, context):
+        """@class getCoordinates
+        Desde el archivo object_coordinates_pb2 generado, se retoman los datos del Header y Coordinates.
+        """
+        
         return object_coordinates_pb2.PointStamped(
             header = object_coordinates_pb2.PointStamped.Header(
                 seq = self.timePoints.header.seq,
@@ -33,21 +38,23 @@ class CoordinatesService(object_coordinates_pb2_grpc.coordinatesServiceServicer)
                 frame_id = self.timePoints.header.frame_id
             ),
             point = object_coordinates_pb2.PointStamped.Coordinates(
-                x = self.timePoints.point.x, ##
-                y = self.timePoints.point.y ##
+                x = self.timePoints.point.x,
+                y = self.timePoints.point.y
             )
     )
     
     def coordinates_callback(self,data):
         self.timePoints = data
         
-def stop_server(signum,frame): ##
+# Detiene el servidor
+def stop_server(signum,frame):
     print('Asistiendo signal {signum} ({signal.Signals(signum).name}).')
-    # 
     time.sleep(1)
     sys.exit(0)
     
 def main():
+    """@brief main
+    """
     port = '50051'
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     object_coordinates_pb2_grpc.add_coordinatesServiceServicer_to_server(CoordinatesService(), server)
@@ -62,17 +69,6 @@ def main():
     except KeyboardInterrupt:
         server.stop(0)
         print("Servidor detenido.")
-    
-    
-# Inicializar nodo de ROS y servidor gRPC -----------
-#def main():
-    #rospy.init_node('grpc_server_node') ## Cambiar nombre??
-    #server = grpc.server(ThreadPoolExecutor())
-    #coordinates_service = CoordinatesService()
-    #add_coordinatesServiceServicer_to_server(coordinates_service, server)
-    #server.add_insecure_port('[::]:50051') ## ??
-    #server.start()
-    #rospy.spin()
     
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, stop_server)

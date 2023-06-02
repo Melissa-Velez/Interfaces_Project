@@ -76,7 +76,7 @@ func main() {
 	// }()
 
 	// Create TCP Server
-	listener, err := net.Listen("tcp", "localhost:50051") // puerto 50051
+	listener, err := net.Listen("tcp", "localhost:50052") // puerto 50051
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -91,7 +91,7 @@ func main() {
 	// Connect servers
 	err = grpcServer.Serve(listener)
 	if err != nil {
-		// log.Println(err) // V1 Tutorial
+		// log.Println(err) // V1
 		log.Fatalf("Problema con servidor: %v", err)
 	} //else {
 	//log.Println("Listening on 50051")

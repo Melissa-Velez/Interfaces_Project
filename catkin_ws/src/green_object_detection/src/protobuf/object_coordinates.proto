@@ -1,11 +1,12 @@
-syntax = "proto3";
-package RpcDemo; //
+/**
+ * Este código establece la estructura para intercambiar información sobre puntos en un sistema de coordenadas a través de servicios y mensajes definidos en Protocol Buffers. Define un mensaje llamado "PointStamped" que representa un punto detectado en un sistema de coordenadas. Se define un mensaje "Empty" como un tipo vacío. El servicio "coordinatesService" contiene el método "getCoordinates" que devuelve un punto con encabezado y coordenadas.
+ * @param PointStamped Establecimiento de datos y tipos de mensaje, entre los cuales se especifican los header y valores de coordenadas.
+ */
 
-// package object_coordinates; //
-// import "google/protobuf/empty.proto";
+syntax = "proto3";
+package RpcDemo;
 
 message PointStamped {
-
   message Coordinates{
     float x = 1;
     float y = 2;
@@ -25,6 +26,4 @@ message Empty{}
 
 service coordinatesService{
   rpc getCoordinates(Empty) returns (PointStamped) {}
-  // rpc getCoordinates(stream google.protobuf.Empty) returns (stream PointStamped); //
-  // pc setCoordinates (stream PointStamped) returns (google.protobuf.Empty);
 }
