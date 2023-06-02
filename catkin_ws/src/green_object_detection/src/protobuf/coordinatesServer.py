@@ -28,9 +28,8 @@ class CoordinatesService(object_coordinates_pb2_grpc.coordinatesServiceServicer)
         
     def getCoordinates(self, request, context):
         """@class getCoordinates
-        Desde el archivo object_coordinates_pb2 generado, se retoman los datos del Header y Coordinates.
+        Desde el archivo object_coordinates_pb2 generado, se crea una instancia del mensaje 'PointStamped' y establece sus campos utilizando valores de otros objetos o variables.
         """
-        
         return object_coordinates_pb2.PointStamped(
             header = object_coordinates_pb2.PointStamped.Header(
                 seq = self.timePoints.header.seq,
@@ -54,6 +53,7 @@ def stop_server(signum,frame):
     
 def main():
     """@brief main
+    
     """
     port = '50051'
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))

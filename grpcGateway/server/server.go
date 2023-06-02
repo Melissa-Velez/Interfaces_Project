@@ -36,7 +36,7 @@ func (s *coordinatesServiceServer) GetCoordinates(ctx context.Context, req *pb.E
 	//res, err := client.GetCoordinates(context.Background(), req)
 	res, err := client.GetCoordinates(context.Background(), &pb.Empty{})
 	if err != nil {
-		log.Println("Error al llamar al servidor: %v", err)
+		log.Printf("Error al llamar al servidor: %v", err)
 		return nil, err
 	}
 
@@ -86,7 +86,7 @@ func main() {
 
 	pb.RegisterCoordinatesServiceServer(grpcServer, &coordinatesServiceServer{})
 
-	log.Println("Listening on 50051")
+	log.Println("Listening on 50052")
 
 	// Connect servers
 	err = grpcServer.Serve(listener)

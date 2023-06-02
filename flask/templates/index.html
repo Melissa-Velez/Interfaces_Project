@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coordenadas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            width: 400px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            color: black;
+            font-size: 24px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        h3 {
+            color: black;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Header</h1>
+        <h3>Seq: {{coords.header.seq}}</h3>
+        <h3>Stamp: {{coords.header.stamp}}</h3>
+        <h3>Frame: {{coords.header.frameId}}</h3>
+        <h1>Coordenadas</h1>
+        <h3>X: {{ coords.point.x }}</h3>
+        <h3>Y: {{ coords.point.y }}</h3>
+    </div>
+</body>
+</html>

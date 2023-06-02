@@ -80,7 +80,6 @@ class ObjectDetector:
             newCoordY = ctypes.c_int(cy)
             # Importacion de libreria y nuevas coordenadas
             self.lib.multiply_coordinates(ctypes.byref(newCoordX), ctypes.byref(newCoordY))
-            print("X: ", newCoordX.value, "Y: ", newCoordY.value)
             
             # PointStamped con coordenadas multiplicadas y su timestamp
             self.timePoint = PointStamped()
@@ -89,7 +88,8 @@ class ObjectDetector:
             self.timePoint.point.y = newCoordY.value
             
             # Publish objeto en el topico
-            self.pub.publish(self.timePoint)
+            if self.timePoint.point.x > 0 and self.timePoint.point.y > 0:
+                self.pub.publish(self.timePoint)
 
 def main():
     rospy.init_node('object_detector')
